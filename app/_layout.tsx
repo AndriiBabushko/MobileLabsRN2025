@@ -12,7 +12,6 @@ import { useEffect } from 'react';
 import 'react-native-reanimated';
 
 import { useColorScheme } from '@/hooks';
-import { CartProvider } from '@/components/providers';
 
 export { ErrorBoundary } from 'expo-router';
 

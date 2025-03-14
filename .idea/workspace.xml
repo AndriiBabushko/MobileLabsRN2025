@@ -4,11 +4,34 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="abb4a9da-1700-4a81-b696-703802353350" name="Changes" comment="docs(REAME): make REAME more convenient to check labs and their status">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lab1.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lab2.pdf" beforeDir="false" />
+    <list default="true" id="abb4a9da-1700-4a81-b696-703802353350" name="Changes" comment="feat(lab2): init lab 2">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(tabs)/_layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(tabs)/_layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(tabs)/chat.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(tabs)/chat.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(tabs)/community.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(tabs)/community.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(tabs)/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(tabs)/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(tabs)/profile.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(tabs)/profile.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(tabs)/safety.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(tabs)/safety.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/_layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/_layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/common/ExternalLink.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/common/MonoText.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/common/Text.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/common/View.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/common/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/context/CartContext.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/context/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/providers/CartProvider.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/providers/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/ui/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/components/ui/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/constants/colors.ts" beforeDir="false" afterPath="$PROJECT_DIR$/constants/colors.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eslint.config.mjs" beforeDir="false" afterPath="$PROJECT_DIR$/eslint.config.mjs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hooks/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/hooks/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hooks/useCart.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hooks/useThemeColor.ts" beforeDir="false" afterPath="$PROJECT_DIR$/hooks/useThemeColor.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/types/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/types/index.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,12 +42,17 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="tsconfig.json" />
-        <option value="TypeScript File" />
         <option value="TypeScript JSX File" />
+        <option value="TypeScript File" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="lab2" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
@@ -148,7 +176,7 @@
       <workItem from="1741254846241" duration="233000" />
       <workItem from="1741255084805" duration="5979000" />
       <workItem from="1741789155774" duration="283000" />
-      <workItem from="1741875605785" duration="6728000" />
+      <workItem from="1741875605785" duration="17371000" />
     </task>
     <task id="LOCAL-00001" summary="feat(lab1): complete lab 1">
       <option name="closed" value="true" />
@@ -174,7 +202,15 @@
       <option name="project" value="LOCAL" />
       <updated>1741876183067</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="feat(lab2): init lab 2">
+      <option name="closed" value="true" />
+      <created>1741961524680</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1741961524680</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -184,6 +220,7 @@
     <MESSAGE value="feat(lab1): complete lab 1" />
     <MESSAGE value="refactor(main): clean up main branch from other stuff" />
     <MESSAGE value="docs(REAME): make REAME more convenient to check labs and their status" />
-    <option name="LAST_COMMIT_MESSAGE" value="docs(REAME): make REAME more convenient to check labs and their status" />
+    <MESSAGE value="feat(lab2): init lab 2" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(lab2): init lab 2" />
   </component>
 </project>
