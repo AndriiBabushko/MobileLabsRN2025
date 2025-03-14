@@ -14,4 +14,4 @@ This repository contains lab assignments for the Mobile Development course.
 
 ## To-Do List
 - [x] Lab 1
-- [ ] Lab 2
+- [X] Lab 2
