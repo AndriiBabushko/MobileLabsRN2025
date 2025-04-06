@@ -9,13 +9,15 @@
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.andriibabushko.pushnotifications"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.andriibabushko.pushnotifications"
     },
     "web": {
       "bundler": "metro",
@@ -32,10 +34,20 @@
           "resizeMode": "contain",
           "backgroundColor": "#ffffff"
         }
+      ],
+      [
+        "onesignal-expo-plugin",
+        {
+          "mode": "development"
+        }
       ]
     ],
     "experiments": {
       "typedRoutes": true
+    },
+    "extra": {
+      "oneSignalAppId": "2a7b28bf-d3eb-4445-b28a-ceca4ddb96b4",
+      "oneSignalAPIKey": "os_v2_app_fj5srp6t5ncelmukz3fe3w4wwr4ivjypkr3eo5ftwdpp73kk2i5roqhywycy3psjxpdtopaqkbcotagj2mqito7wky5hd5oeuhbte3i"
     }
   }
 }

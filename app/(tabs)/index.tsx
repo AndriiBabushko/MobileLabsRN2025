@@ -1,74 +1,101 @@
-import { Image, StyleSheet, Platform } from 'react-native';
+import React, { useState } from 'react';
+import {
+  StyleSheet,
+  View,
+  Text,
+  TextInput,
+  Button,
+  Alert,
+  Platform,
+} from 'react-native';
+import DateTimePicker from '@react-native-community/datetimepicker';
+import { useTask } from '@/hooks/useTaskContext';
+import { scheduleNotification } from '@/services/notifications';
 
-import { HelloWave } from '@/components/HelloWave';
-import ParallaxScrollView from '@/components/ParallaxScrollView';
-import { ThemedText } from '@/components/ThemedText';
-import { ThemedView } from '@/components/ThemedView';
+export default function AddTaskScreen() {
+  const { addTask } = useTask();
+  const [title, setTitle] = useState('');
+  const [desc, setDesc] = useState('');
+  const [reminderTime, setReminderTime] = useState(new Date());
+  const [showDatePicker, setShowDatePicker] = useState(false);
 
-export default function HomeScreen() {
+  const handleAddTask = async () => {
+    if (!title.trim()) {
+      Alert.alert('Помилка', 'Будь ласка, введіть назву задачі');
+      return;
+    }
+    const newTask = {
+      id: Date.now().toString(),
+      title,
+      desc,
+      reminderTime,
+      notificationId: null,
+    };
+
+    const notificationId = await scheduleNotification(newTask);
+    newTask.notificationId = notificationId;
+
+    addTask(newTask);
+    setTitle('');
+    setDesc('');
+  };
+
   return (
-    <ParallaxScrollView
-      headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
-      headerImage={
-        <Image
-          source={require('@/assets/images/partial-react-logo.png')}
-          style={styles.reactLogo}
+    <View style={styles.container}>
+      <Text style={styles.header}>Add New Task</Text>
+      <TextInput
+        style={styles.input}
+        placeholder="Назва задачі"
+        value={title}
+        onChangeText={setTitle}
+      />
+      <TextInput
+        style={[styles.input, { height: 80 }]}
+        placeholder="Опис задачі"
+        value={desc}
+        onChangeText={setDesc}
+        multiline
+      />
+      <Button
+        title="Обрати час нагадування"
+        onPress={() => setShowDatePicker(true)}
+      />
+      <Text style={styles.selectedTime}>
+        Обрано: {reminderTime.toLocaleString()}
+      </Text>
+      <Button title="Додати задачу" onPress={handleAddTask} />
+      {showDatePicker && (
+        <DateTimePicker
+          value={reminderTime}
+          mode="time"
+          display="default"
+          is24Hour
+          onChange={(_event, selectedDate) => {
+            setShowDatePicker(Platform.OS === 'ios');
+            if (selectedDate) {
+              setReminderTime(selectedDate);
+            }
+          }}
         />
-      }>
-      <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Welcome!</ThemedText>
-        <HelloWave />
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 1: Try it</ThemedText>
-        <ThemedText>
-          Edit <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText> to see changes.
-          Press{' '}
-          <ThemedText type="defaultSemiBold">
-            {Platform.select({
-              ios: 'cmd + d',
-              android: 'cmd + m',
-              web: 'F12'
-            })}
-          </ThemedText>{' '}
-          to open developer tools.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 2: Explore</ThemedText>
-        <ThemedText>
-          Tap the Explore tab to learn more about what's included in this starter app.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 3: Get a fresh start</ThemedText>
-        <ThemedText>
-          When you're ready, run{' '}
-          <ThemedText type="defaultSemiBold">npm run reset-project</ThemedText> to get a fresh{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> directory. This will move the current{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> to{' '}
-          <ThemedText type="defaultSemiBold">app-example</ThemedText>.
-        </ThemedText>
-      </ThemedView>
-    </ParallaxScrollView>
+      )}
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
-  titleContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 8,
+  container: { flex: 1, padding: 16, backgroundColor: '#fff' },
+  header: {
+    fontSize: 28,
+    fontWeight: 'bold',
+    marginBottom: 16,
+    textAlign: 'center',
   },
-  stepContainer: {
-    gap: 8,
+  input: {
+    borderWidth: 1,
+    borderColor: '#ccc',
+    padding: 8,
     marginBottom: 8,
+    borderRadius: 4,
   },
-  reactLogo: {
-    height: 178,
-    width: 290,
-    bottom: 0,
-    left: 0,
-    position: 'absolute',
-  },
+  selectedTime: { fontSize: 16, marginBottom: 8, textAlign: 'center' },
 });
